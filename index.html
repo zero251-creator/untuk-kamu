@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surat Permintaan Maappp 💌</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Trebuchet MS', sans-serif;
+  background: linear-gradient(135deg, #ffe0ec, #f9d8ff, #fff0dc);
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+h2 {
+  color: #b34472;
+  margin-bottom: 12px;
+  font-size: 23px;
+}
+
+.subtitle {
+  color: #9c5678;
+  margin-bottom: 55px;
+  font-size: 14px;
+}
+
+.envelope-wrap {
+  position: relative;
+  width: 280px;
+  height: 190px;
+  margin: auto;
+  cursor: pointer;
+  perspective: 1000px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.envelope {
+  position: absolute;
+  inset: 0;
+  background: #f7a9c4;
+  border-radius: 5px;
+  box-shadow: 0 12px 30px #c77c9b55;
+}
+
+.letter {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  width: 260px;
+  height: 170px;
+  padding: 20px 14px;
+  background: #fffdf7;
+  border-radius: 8px;
+  color: #a34269;
+  z-index: 2;
+  transition: transform 1s ease, height 1s ease;
+  overflow: hidden;
+}
+
+.letter h3 {
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+
+.letter p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 105px solid #f18bb0;
+  transform-origin: top;
+  transition: transform 0.7s ease;
+  z-index: 4;
+}
+
+.front {
+  position: absolute;
+  inset: 0;
+  background: #f7a9c4;
+  clip-path: polygon(0 0, 50% 57%, 100% 0, 100% 100%, 0 100%);
+  z-index: 3;
+}
+
+.heart {
+  position: absolute;
+  z-index: 5;
+  top: 73px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 35px;
+  transition: opacity 0.3s;
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.open .heart {
+  opacity: 0;
+}
+
+.open .letter {
+  height: 320px;
+  transform: translateY(-190px);
+  transition-delay: 0.4s;
+  overflow-y: auto;
+}
+
+.open .front {
+  z-index: 1;
+}
+
+.hint {
+  color: #b34472;
+  margin-top: 38px;
+  font-size: 14px;
+  animation: pulse 1.5s infinite;
+}
+
+.reset {
+  display: none;
+  margin: 24px auto 0;
+  border: none;
+  background: #d95e91;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.open ~ .hint {
+  display: none;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.floating {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .envelope-wrap {
+    transform: scale(0.88);
+    transform-origin: top center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Hai, aku punya surat buat kamu 💌</h2>
+  <p class="subtitle">Ada sesuatu yang ingin aku sampaikan...</p>
+
+  <div class="envelope-wrap" id="env" onclick="openLetter()">
+    <div class="envelope"></div>
+
+    <div class="letter">
+      <h3>Maapin aku ya 🥺</h3>
+      <p>
+        Haiiii, aku mau minta maapp sama kamu.
+        <br><br>
+        maapp kalau selama ini ada kata-kata atau sikap aku
+        yang bikin kamu kecewa, sakit hati, atau nggak nyaman.
+        <br><br>
+        jujur, aku nggak pernah bermaksud buat bikin kamu ngerasa
+        seperti itu. Tapi aku sadar, mungkin ada hal yang aku
+        lakuin tanpa aku sadari ternyata nyakitin kamu dan bikin kamu bingung juga.
+        <br><br>
+        aku ngga mau egois dan menganggap semuanya baik-baik aja.
+        aku cuma pengen kita bisa baik lagi,dan balikan tanpa ada rasa
+        ngga enak di antara kita.
+        <br><br>
+        kamu ngga harus langsung maapin akuuu sekarang.
+        akuuu ngerti kalau kamu butuh waktu.
+        <br><br>
+        sekali lagi, maafin aku ya.
+        makasih udah mau baca surat kecil ini. 🤍
+        <br><br>
+        <b>— Dari aku, Rafa (icaaa) </b>
+      </p>
+    </div>
+
+    <div class="flap"></div>
+    <div class="front"></div>
+    <div class="heart">💗</div>
+  </div>
+
+  <p class="hint" id="hint">♡ klik amplopnya untuk membuka ♡</p>
+  <button class="reset" id="reset" onclick="resetLetter()">
+    Tutup surat ↻
+  </button>
+</div>
+
+<script>
+let isOpen = false;
+
+function openLetter() {
+  if (isOpen) return;
+
+  isOpen = true;
+  document.getElementById("env").classList.add("open");
+  document.getElementById("hint").style.display = "none";
+  document.getElementById("reset").style.display = "block";
+
+  // Animasi hati berjatuhan
+  for (let i = 0; i < 18; i++) {
+    setTimeout(() => {
+      const heart = document.createElement("div");
+      heart.className = "floating";
+      heart.textContent = ["💗", "💕", "💖", "♡"][Math.floor(Math.random() * 4)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (16 + Math.random() * 18) + "px";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, i * 180);
+  }
+}
+
+function resetLetter() {
+  isOpen = false;
+  document.getElementById("env").classList.remove("open");
+  document.getElementById("hint").style.display = "block";
+  document.getElementById("reset").style.display = "none";
+}
+</script>
+
+</body>
+</html>
